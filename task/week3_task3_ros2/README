@@ -1,0 +1,65 @@
+Week 3 – Task: SLAM Mapping with TurtleBot3 (ROS2 Humble)
+Overview
+
+This task demonstrates Simultaneous Localization and Mapping (SLAM) using TurtleBot3 in ROS2 Humble.
+The robot explores a Gazebo environment while building a 2D occupancy grid map, which is later used for navigation.
+
+Requirements
+
+Ubuntu 22.04 LTS
+
+ROS2 Humble installed
+
+Steps
+1. Launch Gazebo Simulation
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+2. Start SLAM Toolbox
+ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
+
+3. Open RViz2
+rviz2
+
+Add Map and LaserScan displays.
+
+Observe the map forming as the robot explores.
+
+4. Teleoperate the Robot
+ros2 run turtlebot3_teleop teleop_keyboard
+Use arrow keys to move around the world.
+
+Mapping updates in RViz2.
+
+5. Save the Map
+
+When mapping is complete:
+ros2 run nav2_map_server map_saver_cli -f ~/sim_map
+This generates:
+
+sim_map.yaml
+
+sim_map.pgm
+
+Validation
+
+Map loads correctly in RViz2
+
+Robot explores and builds occupancy grid
+
+Map saved as YAML + PGM files
+
+Deliverables
+
+Screenshots:
+
+slam_in_progress.png → Mapping while robot explores
+
+final_map.png → Final map after saving
+
+Video:
+
+week3_slam_demo.mp4 → Robot exploring + map creation
+
+Reflection (PDF):
+
+Comparison between simulation and real robot SLAM
